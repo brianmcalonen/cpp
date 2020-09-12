@@ -35,7 +35,27 @@ int main()
     cout << "Enter transaction amount: ";
     cin >> transaction_amount;
 
-    cout << choice << " " << transaction_amount << endl;
+    // switch statement based on user's choice 
+    switch (choice) 
+    {
+        case 'c':
+            cout << choice;
+            break;
+        
+        case 'd':
+        case 'D':
+            cout << choice;
+            break;
+
+        case 'e':
+        case 'E':
+            cout << choice;
+            break;
+
+        default:
+            cout << "Please enter a valid choice" << endl;
+
+    }
 
     return 0;
 }
