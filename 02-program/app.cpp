@@ -10,6 +10,7 @@ int main()
     double balance;
     double transaction_amount;
     double total_charges;
+    bool program_running = true;
     
 
     // set the numeric output formatting
@@ -23,61 +24,70 @@ int main()
     cout << "Enter the beginning balance: ";
     cin >> balance;
 
-    // display the menu
-    cout << "\nCommands:" << endl;
-    cout << "C - process a check" << endl;
-    cout << "D - process a deposit" << endl;
-    cout << "E - end the program\n" << endl;
+    while(program_running) {
 
-    // prompt the user for their transaction menu_choice
-    cout << "Enter transaction type: ";
-    cin >> menu_choice;
+        // display the menu
+        cout << "\nCommands Menu:" << endl;
+        cout << "C - process a check" << endl;
+        cout << "D - process a deposit" << endl;
+        cout << "E - end the program\n" << endl;
 
-    // prompt the user for the transaction amount
-    cout << "Enter transaction amount: ";
-    cin >> transaction_amount;
+        // prompt the user for their transaction menu_choice
+        cout << "Enter transaction type: ";
+        cin >> menu_choice;
 
-    // switch statement based on user's menu_choice 
-    switch (menu_choice) 
-    {
-        case 'c':
-        case 'C':
-            // Subtract transaction amount from balance
-            balance -= transaction_amount;
+        // switch statement based on user's menu_choice 
+        switch (menu_choice) 
+        {
+            case 'c':
+            case 'C':
+                // prompt the user for the transaction amount
+                cout << "Enter transaction amount: ";
+                cin >> transaction_amount;
 
-            // Add service fee to total charges
-            total_charges += SERVICE_CHARGE;
+                // Subtract transaction amount from balance
+                balance -= transaction_amount;
 
-            cout << "\nProcessing check for " << transaction_amount << endl;
-            cout << "Balance: $" << balance << endl;
-            cout << "Service charge: $0.35 for a check." << endl;
-            cout << "Total service charges: $" << total_charges << " for a check.\n" << endl;
-            break;
-        
-        case 'd':
-        case 'D':
-            cout << menu_choice;
+                // Add service fee to total charges
+                total_charges += SERVICE_CHARGE;
 
-            // Enter transaction type: D
-            // Enter transaction amount: 200
-            // Processing deposit for $200.00
-            // Balance: $799.75
-            // Total service charges: $.70
+                cout << "\nProcessing check for $" << transaction_amount << endl;
+                cout << "Balance: $" << balance << endl;
+                cout << "Service charge: $0.35 for a check." << endl;
+                cout << "Total service charges: $" << total_charges << "\n" << endl;
+                
+                break;
+            
+            case 'd':
+            case 'D':
+                // prompt the user for the transaction amount
+                cout << "Enter transaction amount: ";
+                cin >> transaction_amount;
 
-            break;
+                // Add transaction amount to balance
+                balance += transaction_amount;
 
-        case 'e':
-        case 'E':
-            cout << menu_choice;
+                cout << "\nProcessing deposit for $" << transaction_amount << endl;
+                cout << "Balance: $" << balance << endl;
+                cout << "Total service charges: $" << total_charges << "\n" << endl;
 
-            // Enter transaction type: E
-            // Processing end of month
-            // Final balance: $799.05
+                break;
 
-            break;
+            case 'e':
+            case 'E':
+                // Subtract total service charges from the balance
+                balance -= total_charges;
+                cout << "Processing end of month..." << endl;
+                cout << "Final balance: $" << balance << "\n" << endl;
 
-        default:
-            cout << "Please enter a valid menu_choice" << endl;
+                program_running = false;
+
+                break;
+
+            default:
+                cout << "Please enter a valid menu choice" << endl;
+
+        }
 
     }
 
