@@ -68,9 +68,3 @@ Other requirements
 
 Do not use global variables in any assignment. A global variable is a variable that is declared outside any function. Note: global constants are okay.
 All dollar amounts should be printed with 2 decimal places.
-Return to Programming Fundamentals II Home Page
-
-Copyright: ©2017 by the Austin Community College
-Department of Computer Studies. All rights reserved.
-Comments to: Bob Comer
-Last updated: August 3, 2017

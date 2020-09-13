@@ -13,8 +13,7 @@ int main()
     cout << fixed << showpoint << setprecision(2);
 
     // display the progam's title
-    cout << "----------------------------" << endl;
-    cout << "Checkbook Balancing Program" << endl;
+    cout << "\nCheckbook Balancing Program" << endl;
     cout << "----------------------------" << endl;
 
     // prompt the user for their initial balance
@@ -40,16 +39,36 @@ int main()
     {
         case 'c':
             cout << choice;
+
+            //Enter transaction type: C
+            // Enter transaction amount: 250
+            // Processing check for $250.00
+            // Balance: $599.75
+            // Service charge: $0.35 for a check
+            // Total service charges: $.70
+
             break;
         
         case 'd':
         case 'D':
             cout << choice;
+
+            // Enter transaction type: D
+            // Enter transaction amount: 200
+            // Processing deposit for $200.00
+            // Balance: $799.75
+            // Total service charges: $.70
+
             break;
 
         case 'e':
         case 'E':
             cout << choice;
+
+            // Enter transaction type: E
+            // Processing end of month
+            // Final balance: $799.05
+            
             break;
 
         default:
