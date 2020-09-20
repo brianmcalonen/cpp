@@ -1,6 +1,8 @@
 Start with your checkbook balancing program from assignment 2 that helps you balance a checkbook at the end of a monthly statement period. Modify your program as follows:
 
-The user should enter the transaction type and amount (if required) on a single line. If there is a problem with the command (invalid transaction type or invalid amount), print an error message and have the user re-enter the whole command. You should never have a separate prompt for just the transaction type or for just the transaction amount. Note that this means that you do not need validation loops. The validation is done using selection (if or switch) inside the main transaction processing loop. You just need the one transaction processing loop that reads a command on each iteration.
+The user should enter the transaction type and amount (if required) on a single line. If there is a problem with the command (invalid transaction type or invalid amount), print an error message and have the user re-enter the whole command. 
+
+You should never have a separate prompt for just the transaction type or for just the transaction amount. Note that this means that you do not need validation loops. The validation is done using selection (if or switch) inside the main transaction processing loop. You just need the one transaction processing loop that reads a command on each iteration.
 
 You must divide your program into at least three different functions: a main function, a check-processing function and a deposit-processing function. You can add other functions if you want to.
 Add additional service charges as described below.
