@@ -30,14 +30,15 @@ E
 
 Perform end-of-month processing and end the program.
 
- 
-
 Service Charges
 
 There is a $0.35 service charge for each check written.
+
 If the account balance falls below $1000.00 at any time during the month, there is a $10.00 service charge (low balance charge) for the month. If the balance stays at $1000 or more during the entire monthly statement period (program execution), there is no low balance charge for the month. Otherwise, there is a single $10.00 low balance charge for the month.
+
 If processing a check results in a negative balance, there is a $30.00 service charge (insufficient funds charge). This $30.00 fee is charged for each check that results in a negative balance.
 Note: Do not any deduct service charges from the account balance until the end of the month.
+
 Program Output
 
 For each transaction, print:
