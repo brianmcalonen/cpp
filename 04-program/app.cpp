@@ -41,7 +41,7 @@ void Robot::setRPM(double newRPM)
 {
     if(newRPM == 74 || newRPM == 190 || newRPM == 265)
     {
-        rpm = newRPM
+        rpm = newRPM;
     }
 }
 
