@@ -20,9 +20,37 @@ class Robot
                diameter;   // the wheel diameter in inches
     
     public:
+        // prototypes for member functions
+        Robot();
         void setRPM(double newRPM);
-        void setDiameter(double newDiamester);
+        void setDiameter(double newDiameter);
         double getRPM();
         double getDiameter();
         double getSpeed();
+};
+
+// Robot constructor
+Robot::Robot()
+{
+    rpm = 74;
+    diameter = 1;
+}
+
+// RPM setter member function
+void Robot::setRPM(double newRPM)
+{
+    if(newRPM == 74 || newRPM == 190 || newRPM == 265)
+    {
+        rpm = newRPM
+    }
+}
+
+// RPM setter member function
+void Robot::setDiameter(double newDiameter)
+{
+    // if new diameter is 1 to 6 inches inclusive
+    if(newDiameter >= 1 && newDiameter <=6)
+    {
+        diameter = newDiameter;
+    }
 }
