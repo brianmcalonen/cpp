@@ -54,3 +54,21 @@ void Robot::setDiameter(double newDiameter)
         diameter = newDiameter;
     }
 }
+
+//
+double Robot::getRPM()
+{
+    return rpm;
+}
+
+// 
+double Robot::getDiameter()
+{
+    return diameter;
+}
+
+// 
+double Robot::getSpeed()
+{
+    
+}
