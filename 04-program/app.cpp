@@ -33,12 +33,13 @@ class Robot
 // Robot constructor
 Robot::Robot()
 {
-    // initialize default values for variables
+    // initialize default value for gear motor speed
     rpm = 74;
+    // initialize default value for wheel diameter
     diameter = 1;
 }
 
-// rpm setter member function
+// RPM setter member function
 void Robot::setRPM(double newRPM)
 {
     if(newRPM == 74 || newRPM == 190 || newRPM == 265)
@@ -47,7 +48,7 @@ void Robot::setRPM(double newRPM)
     }
 }
 
-// diameter setter member function
+// Diameter setter member function
 void Robot::setDiameter(double newDiameter)
 {
     // if new diameter is 1 to 6 inches inclusive
@@ -57,13 +58,13 @@ void Robot::setDiameter(double newDiameter)
     }
 }
 
-// rpm getter member function
+// RPM getter member function
 double Robot::getRPM()
 {
     return rpm;
 }
 
-// diameter getter member function
+// Diameter getter member function
 double Robot::getDiameter()
 {
     return diameter;
@@ -81,17 +82,22 @@ int main()
     double rpm,     // the gear motor speed in RPM
         diameter;   // the wheel diameter in inches
 
-    Robot robot;
+    Robot robot;    // define robot object
 
     // set the numeric output formatting
     cout << fixed << showpoint << setprecision(2);
 
+    // prompt the user for the robot's motor speed in RPM
     cout << "Enter the robot's gear motor speed in RPM: ";
+    // set rpm equal to the user's input
     cin >> rpm;
+    // prompt the user for the robot's wheel diameter
     cout << "Enter the robot's diameter in inches: ";
+    // set diametere equal to the user's input
     cin >> diameter;
 
     robot.setRPM(rpm);
+
     robot.setDiameter(diameter);
 
     cout << "Robot Stats:" << endl;
