@@ -1,12 +1,11 @@
 //******************************************************************
 // Assignment 4 - Robot Speed Estimator
 // Programmer: Brian McAlonen
-// Completed : 9/23/2020
+// Completed : 9/27/2020
 // Status    : Complete
 //
-// Design a class called Robot that will calculate
-// the estimated speed of a robot using it's gear
-// motor speed and wheel diameter.
+// Design a class called Robot that will calculate the estimated 
+// speed of a robot using it's gear motor speed and wheel diameter.
 //******************************************************************
 
 #include <iostream> // input/output declarations
@@ -30,7 +29,10 @@ class Robot
         double getSpeed();
 };
 
-// Robot constructor
+///////////////////////////////////////////////////////////////
+// Robot Default Constructor
+///////////////////////////////////////////////////////////////
+
 Robot::Robot()
 {
     // initialize default value for gear motor speed
@@ -39,44 +41,68 @@ Robot::Robot()
     diameter = 1;
 }
 
-// RPM setter member function
+///////////////////////////////////////////////////////////////
+// RPM Setter Member Function
+///////////////////////////////////////////////////////////////
+
 void Robot::setRPM(double newRPM)
 {
+    // checks if the newRPM is an allowed value
     if(newRPM == 74 || newRPM == 190 || newRPM == 265)
     {
+        // if value is allowed, set rpm to newRPM
         rpm = newRPM;
     }
 }
 
-// Diameter setter member function
+///////////////////////////////////////////////////////////////
+// Diameter Setter Member Function
+///////////////////////////////////////////////////////////////
+
 void Robot::setDiameter(double newDiameter)
 {
     // if new diameter is 1 to 6 inches inclusive
     if(newDiameter >= 1 && newDiameter <=6)
     {
+        // set diameter to the newDiameter
         diameter = newDiameter;
     }
 }
 
-// RPM getter member function
+///////////////////////////////////////////////////////////////
+// RPM Getter Member Function
+///////////////////////////////////////////////////////////////
+
 double Robot::getRPM()
 {
+    // return the value of the rpm member variable
     return rpm;
 }
 
-// Diameter getter member function
+///////////////////////////////////////////////////////////////
+// Diameter Getter Member Function
+///////////////////////////////////////////////////////////////
+
 double Robot::getDiameter()
 {
+    // return the value of the diameter member variable
     return diameter;
 }
 
-// returns estimated speed of robot
+///////////////////////////////////////////////////////////////
+// Get Speed Member Function 
+///////////////////////////////////////////////////////////////
+
 double Robot::getSpeed()
 {
+    // returns the calculated speed of robot
     return (rpm * diameter * 3.14159) / 12;
 }
 
-// main function
+///////////////////////////////////////////////////////////////
+// Main Function
+///////////////////////////////////////////////////////////////
+
 int main()
 {
     double rpm,     // the gear motor speed in RPM
@@ -96,10 +122,13 @@ int main()
     // set diametere equal to the user's input
     cin >> diameter;
 
+    // set the robot object's rpm
     robot.setRPM(rpm);
 
+    // set the robot object's diameter
     robot.setDiameter(diameter);
 
+    // display the robot's rpms, wheel diameter, and estimated speed
     cout << "Robot Stats:" << endl;
     cout << "Gear motor speed RPM: " << robot.getRPM() << endl;
     cout << "Wheel diameter: " << robot.getDiameter() << endl;
