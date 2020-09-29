@@ -129,10 +129,10 @@ int main()
     robot.setDiameter(diameter);
 
     // display the robot's rpms, wheel diameter, and estimated speed
-    cout << "Robot Stats:" << endl;
-    cout << "Gear motor speed RPM: " << robot.getRPM() << endl;
-    cout << "Wheel diameter: " << robot.getDiameter() << endl;
-    cout << "Estimated speed: " << robot.getSpeed() << endl;
+    cout << "\nRobot Stats" << endl;
+    cout << "Gear motor speed: " << robot.getRPM() << " rpm" << endl;
+    cout << "Wheel diameter: " << robot.getDiameter() << " inches" << endl;
+    cout << "Estimated speed: " << robot.getSpeed() << " feet per minute" << endl;
 
     return 0;
 }
