@@ -4,11 +4,23 @@ using namespace std;
 
 // Passing Arrays to Functions and sizeof Operator
 
+void print_array(int array[], int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        cout << array[i] << "\t";
+    }
+}
+
 int main()
 {
-    int guesses[10] = {12, 43, 23, 43, 23};
+    int guesses[] = {12, 43, 23, 43, 23};
+    int size = sizeof(guesses) / sizeof(int);
 
-    int num_elements = 5;
+    // only use brackets when defining array or accessing elements
+    print_array(guesses, size);
+
+    /* int num_elements = 5;
     int size = sizeof(guesses) / sizeof(int);
 
     cout << size << endl;
@@ -16,8 +28,8 @@ int main()
     for(int i = 0; i < num_elements; i++)
     {
         cout << guesses[i] << "\t";
-    }
-    
+    } */
+
     return 0;
 }
 
