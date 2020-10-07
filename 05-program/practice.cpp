@@ -2,9 +2,45 @@
 #include <string>
 using namespace std;
 
+// Fill Array from Input
+void print_array(int array[], int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        cout << array[i] << "\t";
+    }
+}
+
+int main()
+{
+    const int SIZE = 10;
+    int guesses[SIZE];
+    int count = 0;
+
+    for(int i = 0; i < SIZE; i++)
+    {
+        // return cin => true if input worked
+        if (cin >> guesses[i])
+        {
+            count++;
+        }
+        else
+        {
+            break;
+        }
+        
+    }
+
+    print_array(guesses, count);
+    cin.clear();
+    cin.ignore(10000, '\n');
+
+    return 0;
+}
+
 // Passing Arrays to Functions and sizeof Operator
 
-void print_array(int array[], int size)
+/* void print_array(int array[], int size)
 {
     for(int i = 0; i < size; i++)
     {
@@ -20,18 +56,8 @@ int main()
     // only use brackets when defining array or accessing elements
     print_array(guesses, size);
 
-    /* int num_elements = 5;
-    int size = sizeof(guesses) / sizeof(int);
-
-    cout << size << endl;
-
-    for(int i = 0; i < num_elements; i++)
-    {
-        cout << guesses[i] << "\t";
-    } */
-
     return 0;
-}
+} */
 
 // Struct Basics
 /* struct User
