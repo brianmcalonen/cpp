@@ -2,8 +2,21 @@
 #include <string>
 using namespace std;
 
-// Range-Based for Loop
+// Modifying Array with Range-Based for Loop
 int main()
+{
+    int numbers[] = {1, 2, 3, 4, 5};
+
+    for(int &num : numbers)
+    {
+        cout << num * 3 << endl;
+    }
+
+    cout << numbers << endl;
+}
+
+// Range-Based for Loop
+/* int main()
 {
     string ice_cream[] = {"vanilla", "chocolate", "strawberry", "mint chip", "americone dream"};
 
@@ -11,7 +24,7 @@ int main()
     {
         cout << name << endl;
     }
-} 
+} */
 
 // Fill Array from Input
 /* void print_array(int array[], int size)
