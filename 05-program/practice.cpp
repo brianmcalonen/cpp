@@ -2,8 +2,19 @@
 #include <string>
 using namespace std;
 
+// Range-Based for Loop
+int main()
+{
+    string ice_cream[] = {"vanilla", "chocolate", "strawberry", "mint chip", "americone dream"};
+
+    for(string name : ice_cream)
+    {
+        cout << name << endl;
+    }
+} 
+
 // Fill Array from Input
-void print_array(int array[], int size)
+/* void print_array(int array[], int size)
 {
     for(int i = 0; i < size; i++)
     {
@@ -19,7 +30,6 @@ int main()
 
     for(int i = 0; i < SIZE; i++)
     {
-        // return cin => true if input worked
         if (cin >> guesses[i])
         {
             count++;
@@ -36,7 +46,7 @@ int main()
     cin.ignore(10000, '\n');
 
     return 0;
-}
+} */
 
 // Passing Arrays to Functions and sizeof Operator
 
