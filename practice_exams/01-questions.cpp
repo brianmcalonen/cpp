@@ -139,4 +139,23 @@ Function Overloading
 In C++, function overloading enables functions to handle different types of input and return different types. It allows multiple definitions for the same function name, but all of these definitions must differ in their arguments.
 Inline Functions - An inline function is a function definition, usually in a header file, qualified by the inline keyword, which advises the compiler to insert the function’s body where the function call is. If a modification is made in an inline function, it would require all files containing a call to that function to be recompiled.	`gedkerdiuujcriclhchlivdlhcbttdeglfgdinbtnthcgclkbgbidtuiunujigbu
 
+Chapter 7 - Intro to Classes and Objects
+What does ADT stand for? Abstract Data Type
+The two common programming methods in practice today are procedural programming and object-oriented programming.
+An object is a software entity that combines both data and procedures (i.e., functions) in a single unit.
+Creating a class object is often called instantiating the class.
+An object’s data items are stored in its member variables.
+Bundling together an object’s data and procedures is called encapsulation.
+Normally a class’s member variables are declared to be private, and its member functions are declared to be public.
+A class member function that changes the value of a member variable is called a mutator.
+A class constructor is a member function with the same name as the class.
+Constructors cannot have a return type.
+A destructor is a member function that is automatically called when an object is destroyed.
+A constructor whose parameters all have default values is a default constructor.
+A class may only have one default constructor and one destructor.
+When a member functions forms part of the interface through which a client program can use the class, the function must be public.
+A class object can be passed to a function but cannot be returned by a function. False. It can be both passed to a function and returned from a function.
+It is considered good programming practice to store the declaration for a class, its function definitions, and the client program that uses the class in separate (i.e., each in their own file) files.
+If you were writing the definitions for the Canine class member functions and wanted to place these in their own file, what should you name the file? Canine.cpp
+
 
