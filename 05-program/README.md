@@ -98,9 +98,3 @@ Global variables are variables that are declared outside any function. Do not us
 Use the C++ string class to represent strings in your program.
 You should use a struct to represent the employee master information for one employee. Note: you should NOT include Timecard information in this struct. Timecard information may change from one pay period to the next while employee master information usually does not. In other words, an employee's master information and information about a specific paycheck are 2 different things and logically should not be combined in the same struct (or object).
 The timecard information (hours worked) does not need to be stored in an array.
-Return to Programming Fundamentals II Home Page
-
-Copyright: ©2016 by the Austin Community College
-Department of Computer Studies. All rights reserved.
-Comments to: Bob Comer
-Last updated: March 7, 2016
