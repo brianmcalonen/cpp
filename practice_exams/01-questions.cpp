@@ -81,3 +81,62 @@ A trailing else is a final else that is placed at the end of an if/else if state
 Menu is a set of choices presented to the user. Menu-driven program allows the user to determine the course using menu
 To test more than one condition, an if statement can be nested inside another if statement. (nested if)
 
+
+
+Chapter 5 - Looping
+To increment a value means to increase it by one.
+When the increment or decrement operator is placed before the operand (or to the operand’s left), the operator is being used in the prefix mode.
+The statement or block that is repeated is known as the body of the loop.
+A loop that evaluates its test expression before each repetition is a pretest loop.
+A loop that does not have a way of stopping is known as an infinite loop.
+A running total is a sum of numbers that accumulates with each iteration of a loop.
+A sentinel is a special value that marks the end of a series of values.
+The do-while loop always iterates at least once.
+Inside the for loop’s parentheses, the first expression is the initialization, the second expression is the test, and the third expression is the update.
+The break statement causes a loop to terminate immediately.
+If you open an output file and the file already exists, it will be erased and a new file with the same name will be created.
+What is a file’s read position? It marks the location of the next byte to read.
+Where is the read position when the file is first opened for reading? First byte in the file.
+
+Chapter 6 - Functions
+The header is the part of a function definition that shows the function name, return type, and parameter list.
+If the function showValue has the following header: void showValue(int quantity) you would use the showVaule(5) to call it with the argument 5.
+Values that are sent into a function are called arguments.
+When only a copy of an argument is passed to a function, it is said to be passed by value.
+A local variable is defined inside a function and is not accessible outside the function.
+Global variables provide an easy way to share large amounts of data among all the functions in a program.
+If a function has a local variable with the same name as a global variable, only the local variable can be seen by the function.
+The return statement causes a function to end immediately.
+When a function uses a mixture of parameters with and without default arguments, the parameters with default arguments must be defined last.
+When used as parameters, reference variables allow a function to access the parameter’s original argument.
+Reference variables allow arguments to be passed by reference.
+Two or more functions may have the same name, as long as their parameter lists are different.
+What is the difference between an argument and a parameter value? Arguments appear in the parentheses of a function call. They are the actual values passed to a function. Parameters appear in the parentheses of a function heading. They are the variables that receive the arguments.
+What does it mean to overload a function? Function overloading means including more than one function in the same program that has the same name. C++ allows this providing the overloaded functions can be distinguished by having different parameter lists.
+Give an example of where an argument should be passed by reference. You want the function to change the value of a variable that is defined in the calling function.
+Can a function have a local variable with the same name as a global variable? Yes, but within that function only the local variable can be “seen” or accessed.
+Return Values - A function that returns a value must have a return statement. The data type of the return value also must match the method’s declared return type;
+On the other hand, a void function (one that does not return anything) does not require a return statement.
+Parameters - Function parameters are placeholders for values passed to the function. They act as variables inside a function.
+Here, x is a parameter that holds a value of 10 when it’s called.
+Functions - A function is a set of statements that are executed together when the function is called. Every function has a name, which is used to call the respective function.
+Built-in Functions - C++ has many built-in functions. In order to use them, we have to import the required library using #include.
+Calling a Function - In C++, when we define a function, it is not executed automatically. To execute it, we need to “call” the function by specifying its name followed by a pair of parentheses ().
+void Functions - In C++, if we declare the type of a function as void, it does not return a value. These functions are useful for a set of statements that do not require returning a value.
+Function Declaration & Definition
+A C++ function has two parts: Function declaration & Function definition
+The declaration includes the function’s name, return type, and any parameters. The definition is the actual body of the function which executes when a function is called. The body of a function is typically enclosed in curly braces.
+Function Arguments - the values passed to a function are known as arguments. They represent the actual input values.
+Scope of Code - The scope is the region of code that can access or view a given element:
+Variables defined in global scope are accessible throughout the program.
+Variables defined in a function have local scope and are only accessible inside the function.
+Function Declarations in Header file
+C++ functions typically have two parts: declaration and definition. Function declarations are generally stored in a header file (.hpp or .h) and function definitions (body of the function that defines how it is implemented) are written in the .cpp file.
+Function Template - A function template is a C++ tool that allows programmers to add data types as parameters, enabling a function to behave the same with different types of parameters. The use of function templates and template parameters is a great C++ resource to produce cleaner code, as it prevents function duplication.
+Default Arguments - In C++, default arguments can be added to function declarations so that it is possible to call the function without including those arguments. If those arguments are included the default value is overwritten. Function parameters are read from left to right, so default parameters should be placed from right to left.
+Functions Definitions In C++, it is common to store function definitions in a separate .cpp file from the main() function. This separation results in a more efficient implementation. Note: If the file containing the main() function needs to be recompiled, it is not necessary to recompile the files containing the function definitions.
+Function Overloading
+In C++, function overloading enables functions to handle different types of input and return different types. It allows multiple definitions for the same function name, but all of these definitions must differ in their arguments.
+Inline Functions - An inline function is a function definition, usually in a header file, qualified by the inline keyword, which advises the compiler to insert the function’s body where the function call is. If a modification is made in an inline function, it would require all files containing a call to that function to be recompiled.	`gedkerdiuujcriclhchlivdlhcbttdeglfgdinbtnthcgclkbgbidtuiunujigbu
+
+
