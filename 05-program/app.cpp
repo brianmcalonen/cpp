@@ -35,6 +35,7 @@ struct Employee
 int main()
 {
     const int NUM_EMPLOYEES = 4;
+    const double TAX_RATE = .15;
 
     // array to hold 4 structs
     Employee employee_array[NUM_EMPLOYEES];
@@ -43,6 +44,10 @@ int main()
     string name;
     double rate;
     int work_type;
+    double hours[NUM_EMPLOYEES];
+    double gross_pay;
+    double net_pay;
+
 
     for (int i = 0; i < NUM_EMPLOYEES; i++)
     {
@@ -50,7 +55,7 @@ int main()
         cout << "Employee ID: ";
         cin >> id;
         // clear buffer before taking new line
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Employee Name: ";
         getline(cin, name);
         cout << "Pay Rate: ";
@@ -64,28 +69,68 @@ int main()
         employee_array[i].emp_type = work_type;
 
         // clear buffer before taking new line
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    cout << "Enter timecard information for each employee" << endl;
+
+    for (int i = 0; i < NUM_EMPLOYEES; i++)
+    {
+        cout << "Hours worked for " << employee_array[i].full_name << ": ";
+        cin >> hours[i];
     }
 
     // set the numeric output formatting
     cout << fixed << showpoint << setprecision(2);
 
-    cout << employee_array[0].id_number << endl;
-    cout << employee_array[0].full_name << endl;
-    cout << employee_array[0].pay_rate << endl;
-    cout << employee_array[0].emp_type << endl;
-    cout << employee_array[1].id_number << endl;
-    cout << employee_array[1].full_name << endl;
-    cout << employee_array[1].pay_rate << endl;
-    cout << employee_array[1].emp_type << endl;
-    cout << employee_array[2].id_number << endl;
-    cout << employee_array[2].full_name << endl;
-    cout << employee_array[2].pay_rate << endl;
-    cout << employee_array[2].emp_type << endl;
-    cout << employee_array[3].id_number << endl;
-    cout << employee_array[3].full_name << endl;
-    cout << employee_array[3].pay_rate << endl;
-    cout << employee_array[3].emp_type << endl;
+    cout << "Payroll Report\n" << endl;
+
+    cout << left << setw(3) << "ID" << left << setw(20) << "Name" 
+    << right << setw(10) << "Gross Pay" << right << setw(10) 
+    << "Tax" << right << setw(10) << "Net Pay" << endl;
+
+    for (int i = 0; i < NUM_EMPLOYEES; i++)
+    {
+        // check if employee is a union member (type: 0)
+        if(employee_array[i].emp_type == 0)
+        {
+            // calculate pay when union employee worked overtime
+            if(hours[i] > 40)
+            {
+                gross_pay = ((hours[i] - 40) * 1.5 * employee_array[i].pay_rate) + 40 * employee_array[i].pay_rate;
+                net_pay = gross_pay + gross_pay * TAX_RATE;  
+            }
+            // calculate pay when union employee did not work overtime
+            else{
+                gross_pay = hours[i] * employee_array[i].pay_rate;
+                net_pay = gross_pay + gross_pay * TAX_RATE;  
+            }
+        }
+        // employee is management (type: 1)
+        else    
+        {
+            gross_pay = hours[i] * employee_array[i].pay_rate;
+            net_pay = gross_pay + gross_pay * TAX_RATE;
+        }
+
+    }
+
+    // cout << employee_array[0].id_number << endl;
+    // cout << employee_array[0].full_name << endl;
+    // cout << employee_array[0].pay_rate << endl;
+    // cout << employee_array[0].emp_type << endl;
+    // cout << employee_array[1].id_number << endl;
+    // cout << employee_array[1].full_name << endl;
+    // cout << employee_array[1].pay_rate << endl;
+    // cout << employee_array[1].emp_type << endl;
+    // cout << employee_array[2].id_number << endl;
+    // cout << employee_array[2].full_name << endl;
+    // cout << employee_array[2].pay_rate << endl;
+    // cout << employee_array[2].emp_type << endl;
+    // cout << employee_array[3].id_number << endl;
+    // cout << employee_array[3].full_name << endl;
+    // cout << employee_array[3].pay_rate << endl;
+    // cout << employee_array[3].emp_type << endl;
 
     return 0;
 }
