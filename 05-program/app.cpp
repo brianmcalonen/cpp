@@ -13,41 +13,37 @@
 
 //******************************************************************
 
-#include <iostream> // input/output declarations
-#include <iomanip>  // i/o manupulator declarations
-#include <string>   //
-using namespace std;
-
-// The employee master information consists of the following data:
-// employee ID number (integer value)
-// employee name (your program should handle names of up to 20 characters - may contain spaces)
-// pay rate per hour (floating-point value)
-// type of employee (0 for union, 1 for management)
+#include <iostream>  // input/output declarations
+#include <iomanip>   // i/o manupulator declarations
+#include <string>    //
+using namespace std; //
 
 struct Employee
 {
-    int id_number;
-    string full_name;
-    double pay_rate;
-    int emp_type;
+    int id_number;    // employee's ID number
+    string full_name; // employee's full name
+    double pay_rate;  // employee's hourly rate of pay
+    int emp_type;     // union = 0 or management = 1
 };
 
 int main()
 {
-    const int NUM_EMPLOYEES = 4;
-    const double TAX_RATE = .15;
 
-    int id;
-    string name;
-    double rate;
-    int work_type;
+    const int NUM_EMPLOYEES = 4; //
+    const double TAX_RATE = .15; //
 
-    double gross_pay;
-    double net_pay;
-    double tax;
+    int id;        // user entered ID number
+    string name;   // user entered full name
+    double rate;   // user entered hourly rate of pay
+    int work_type; // user entered employee type (0 or 1)
+
+    double gross_pay; // employee's calculated gross pay
+    double tax;       // employee's calculated tax amount
+    double net_pay;   // employee's calculated net pay
 
     // array to hold 4 structs of employee information
     Employee employee_array[NUM_EMPLOYEES];
+
     // array to hold the number of hours worked by each employee
     double hours[NUM_EMPLOYEES];
 
@@ -58,14 +54,39 @@ int main()
         cout << "Enter information for Employee #" << (i + 1) << endl;
         cout << "Employee ID: ";
         cin >> id;
+
+        // validate the user's input for positive employee number
+        while (id <= 0)
+        {
+            cout << "Enter a positive Employee ID: ";
+            cin >> id;
+        }
+
         // clear buffer before taking new line
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
         cout << "Employee Name: ";
         getline(cin, name);
+
         cout << "Pay Rate: ";
         cin >> rate;
+
+        // validate the user's input for positive pay rate
+        while (rate <= 0)
+        {
+            cout << "Enter a positive pay rate: ";
+            cin >> rate;
+        }
+
         cout << ("Type: ");
         cin >> work_type;
+
+        // validate the user's input for employee type
+        while (work_type != 0 && work_type != 1)
+        {
+            cout << "Enter the employee's type: (0 for union, 1 for management) ";
+            cin >> work_type;
+        }
 
         // set specific employee's struct information
         employee_array[i].id_number = id;
@@ -83,6 +104,13 @@ int main()
     {
         cout << "Hours worked for " << employee_array[i].full_name << ": ";
         cin >> hours[i];
+
+        // validate the user's input for hours worked
+        while (hours[i] < 0)
+        {
+            cout << "Enter the employee's hours worked: ";
+            cin >> hours[i];
+        }
     }
 
     // set the numeric output formatting
