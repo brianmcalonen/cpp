@@ -14,5 +14,12 @@ using namespace std;
 int main()
 {
 
+    // Function prototypes
+    void inputFood();
+    void printTable();
+    double averageFood();
+    double leastFood();
+    double mostFood();
+
     return 0;
 }
