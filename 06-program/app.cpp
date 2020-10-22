@@ -27,7 +27,7 @@ void inputFood(string headerArr[], double foodArr[NUM_ROWS][NUM_COLS])
     {
         for (int j = 0; j < NUM_COLS; j++)
         {
-            cout << "Enter pounds of food eaten by monkey " << (i + 1) << " on " << headerArr[i + 1] << ": " << endl;
+            cout << "Enter pounds of food eaten by monkey " << (i + 1) << " on " << headerArr[j + 1] << ": " << endl;
             cin >> food;
         }
     }
