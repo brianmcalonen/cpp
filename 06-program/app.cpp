@@ -18,21 +18,24 @@ const int NUM_COLS = 7;
 
 // Function prototypes
 void inputFood(string headerArr[], double foodArr[]);
+void printTable(string headerArr[], double foodArr[]);
 
+// inputFood function definition
 void inputFood(string headerArr[], double foodArr[NUM_ROWS][NUM_COLS])
 {
-    double food;
-
     for (int i = 0; i < NUM_ROWS; i++)
     {
         for (int j = 0; j < NUM_COLS; j++)
         {
             cout << "Enter pounds of food eaten by monkey " << (i + 1) << " on " << headerArr[j + 1] << ": " << endl;
-            cin >> food;
+            cin >> foodArr[i][j];
         }
     }
+}
 
-    cout << "works" << endl;
+void printTable(string headerArr[], double foodArr[NUM_ROWS][NUM_COLS])
+{
+    cout << "print table" << endl;
 }
 
 int main()
@@ -41,7 +44,8 @@ int main()
     double monkey_array[NUM_ROWS][NUM_COLS];
 
     // Function calls
-    inputFood(header, monkey_array);
+    // inputFood(header, monkey_array);
+    printTable(header, monkey_array);
 
     return 0;
 }
