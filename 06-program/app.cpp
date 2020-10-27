@@ -17,55 +17,53 @@ const int NUM_ROWS = 3;
 const int NUM_COLS = 7;
 
 // Function prototypes
-void inputFood(string headerArr[], double foodArr[]);
-void printTable(string headerArr[], double foodArr[]);
+void inputFood(const double foodArr[], int num_rows);
+void printTable(const double foodArr[], int num_rows);
+
 
 // inputFood function definition
-void inputFood(string headerArr[], double foodArr[NUM_ROWS][NUM_COLS])
+void inputFood(double foodArr[][NUM_COLS], int num_rows)
 {
-    for (int i = 0; i < NUM_ROWS; i++)
+    string daysArr[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+
+    for (int i = 0; i < num_rows; i++)
     {
         for (int j = 0; j < NUM_COLS; j++)
         {
-            cout << "Enter pounds of food eaten by monkey " << (i + 1) << " on " << headerArr[j + 1] << ": " << endl;
+            cout << "Enter pounds of food eaten by monkey " << (i + 1) << " on " << daysArr[j] << ": " << endl;
             cin >> foodArr[i][j];
         }
     }
 }
 
-void printTable(string headerArr[], double foodArr[NUM_ROWS][NUM_COLS])
+// printTable function definition
+void printTable(double foodArr[][NUM_COLS], int num_rows)
 {
+
+    string headerArr[] = {"Monkey", "Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"};
 
     // print header and format
     cout << setw(7) << headerArr[0] << setw(7) << headerArr[1] << setw(7) << headerArr[2] << setw(7)
     << headerArr[3] << setw(7) << headerArr[4] << setw(7) << headerArr[5] << setw(7) << headerArr[6]
     << setw(7) << headerArr[7] << endl;
 
-    for (int i = 0; i < NUM_ROWS; i++)
+    for (int i = 0; i < num_rows; i++)
     {
-        for (int j = 0; j < NUM_COLS; j++)
-        {
-            cout << setw(7) << foodArr[i][j] << setw(7) << foodArr[i][j] << setw(7) << foodArr[i][j] << setw(7)
-    << foodArr[i][j] << setw(7) << foodArr[i][j] << setw(7) << foodArr[i][j] << setw(7) << foodArr[i][j]
-    << setw(7) << foodArr[i][j] << endl;
+        // set precision of output
+        cout << fixed << setprecision(2);
 
-        }
+        cout << setw(7) << (i + 1) << setw(7) << foodArr[i][0] << setw(7) << foodArr[i][1]
+        << setw(7) << foodArr[i][2] << setw(7) << foodArr[i][3] << setw(7) << foodArr[i][4] << setw(7) << foodArr[i][5] << setw(7) << foodArr[i][6] << endl;
     }
-
-    cout << "print table" << endl;
 }
 
 int main()
 {
-    string header[] = {"Monkey", "Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"};
-    double monkey_array[NUM_ROWS][NUM_COLS];
-
-    // set precision of output
-    cout << fixed << setprecision(2);
+    double monkey_array[3][NUM_COLS];
 
     // Function calls
-    // inputFood(header, monkey_array);
-    printTable(header, monkey_array);
+    // inputFood(monkey_array, 3);
+    // printTable(monkey_array, 3);
 
     return 0;
 }
