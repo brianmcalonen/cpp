@@ -19,6 +19,7 @@ const int NUM_COLS = 7;
 // Function prototypes
 void inputFood(const double foodArr[], int num_rows);
 void printTable(const double foodArr[], int num_rows);
+double averageFood(const double foodArr[], int num_rows);
 
 
 // inputFood function definition
@@ -57,6 +58,14 @@ void printTable(double foodArr[][NUM_COLS], int num_rows)
     }
 }
 
+// averageFood function definition
+double averageFood(const double foodArr[][NUM_COLS], int num_rows)
+{
+    cout << "average works" << endl;
+
+    return 0;
+}
+
 int main()
 {
     double monkey_array[3][NUM_COLS];
@@ -64,6 +73,7 @@ int main()
     // Function calls
     // inputFood(monkey_array, 3);
     // printTable(monkey_array, 3);
+    averageFood(monkey_array, 3);
 
     return 0;
 }
