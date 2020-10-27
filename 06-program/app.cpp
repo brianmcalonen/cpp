@@ -50,30 +50,40 @@ void printTable(double foodArr[][NUM_COLS], int num_rows)
 
     for (int i = 0; i < num_rows; i++)
     {
-        // set precision of output
-        cout << fixed << setprecision(2);
-
         cout << setw(7) << (i + 1) << setw(7) << foodArr[i][0] << setw(7) << foodArr[i][1]
         << setw(7) << foodArr[i][2] << setw(7) << foodArr[i][3] << setw(7) << foodArr[i][4] << setw(7) << foodArr[i][5] << setw(7) << foodArr[i][6] << endl;
     }
 }
 
 // averageFood function definition
+// calculate the average amount of food eaten per day by all monkeys
 double averageFood(const double foodArr[][NUM_COLS], int num_rows)
 {
-    cout << "average works" << endl;
+    double counter = 0.0;
 
-    return 0;
+    for (int i = 0; i < num_rows; i++)
+    {
+        for (int j = 0; j < NUM_COLS; j++)
+        {
+            counter += foodArr[i][j];
+        }
+    }
+
+    return counter / 7;
 }
 
 int main()
 {
     double monkey_array[3][NUM_COLS];
 
+    // set precision of output
+    cout << fixed << setprecision(2);
+
     // Function calls
-    // inputFood(monkey_array, 3);
-    // printTable(monkey_array, 3);
-    averageFood(monkey_array, 3);
+    inputFood(monkey_array, 3);
+    printTable(monkey_array, 3);
+
+    cout << "Average food: " << averageFood(monkey_array, 3) << endl;
 
     return 0;
 }
