@@ -20,6 +20,8 @@ const int NUM_COLS = 7;
 void inputFood(const double foodArr[], int num_rows);
 void printTable(const double foodArr[], int num_rows);
 double averageFood(const double foodArr[], int num_rows);
+double greatestFood(const double foodArr[], int num_rows);
+double leastFood(const double foodArr[], int num_rows);
 
 
 // inputFood function definition
@@ -72,6 +74,44 @@ double averageFood(const double foodArr[][NUM_COLS], int num_rows)
     return counter / 7;
 }
 
+// greatestFood function definition
+double greatestFood(const double foodArr[][NUM_COLS], int num_rows)
+{
+    double food = foodArr[0][0];
+
+    for (int i = 0; i < num_rows; i++)
+    {
+        for (int j = 0; j < NUM_COLS; j++)
+        {
+            if (foodArr[i][j] > food)
+            {
+                food = foodArr[i][j];
+            }
+        }
+    }
+
+    return food;
+}
+
+// leastFood function definition
+double leastFood(const double foodArr[][NUM_COLS], int num_rows)
+{
+    double food = foodArr[0][0];
+
+    for (int i = 0; i < num_rows; i++)
+    {
+        for (int j = 0; j < NUM_COLS; j++)
+        {
+            if (foodArr[i][j] < food)
+            {
+                food = foodArr[i][j];
+            }
+        }
+    }
+
+    return food;
+}
+
 int main()
 {
     double monkey_array[3][NUM_COLS];
@@ -84,6 +124,8 @@ int main()
     printTable(monkey_array, 3);
 
     cout << "Average food: " << averageFood(monkey_array, 3) << endl;
+    cout << "Greatest food: " << greatestFood(monkey_array, 3) << endl;
+    cout << "Least food: " << leastFood(monkey_array, 3) << endl;
 
     return 0;
 }
