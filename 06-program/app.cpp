@@ -89,7 +89,6 @@ double greatestFood(const double foodArr[][NUM_COLS], int num_rows)
             }
         }
     }
-
     return food;
 }
 
@@ -108,7 +107,6 @@ double leastFood(const double foodArr[][NUM_COLS], int num_rows)
             }
         }
     }
-
     return food;
 }
 
@@ -117,15 +115,15 @@ int main()
     double monkey_array[3][NUM_COLS];
 
     // set precision of output
-    cout << fixed << setprecision(2);
+    cout << fixed << setprecision(1);
 
     // Function calls
     inputFood(monkey_array, 3);
     printTable(monkey_array, 3);
 
-    cout << "Average food: " << averageFood(monkey_array, 3) << endl;
-    cout << "Greatest food: " << greatestFood(monkey_array, 3) << endl;
-    cout << "Least food: " << leastFood(monkey_array, 3) << endl;
+    cout << "The average food eaten per day by all monkeys: " << averageFood(monkey_array, 3) << " pounds" << endl;
+    cout << "The least amount of food eaten by any monkey: " << leastFood(monkey_array, 3)  << " pounds" << endl;
+    cout << "The largest amount of food eaten per by any monkey: " << greatestFood(monkey_array, 3)  << " pounds" << endl;
 
     return 0;
 }
