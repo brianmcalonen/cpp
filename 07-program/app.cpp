@@ -15,7 +15,7 @@ using namespace std;
 // Function prototypes
 void userInput(int, int, int, int);
 
-
+// main Function definition
 int main()
 {
     int weight,
@@ -23,9 +23,12 @@ int main()
         side2,
         side3;
 
+    cout << endl;
+    cout << "For each transaction, enter package weight and 3 dimensions." << endl;
+    cout << "Enter -1 to quit." << endl;
+
     // Function calls
     userInput(weight, side1, side2, side3);
-
 
     return 0;
 }
@@ -33,13 +36,17 @@ int main()
 // userInput Fuction definition
 void userInput(int weight, int side1, int side2, int side3)
 {
-
-    cout << "enter your input: " << endl;
+    cout << endl;
+    cout << "Enter package weight and 3 dimensions: " << endl;
     cin >> weight >> side1 >> side2 >> side3;
 
-    cout << weight << endl;
-    cout << side1 << endl;
-    cout << side2 << endl;
-    cout << side3 << endl;
+    if (weight <= 0 || side1 <= 0 || side2 <= 0 || side3 <= 0)
+    {
+        cout << endl;
+        cout << "Error - package weight and dimensions must be larger than 0" << endl;
+        cout << "Please re-enter transaction" << endl;
+
+        userInput(weight, side1, side2, side3);
+    }
 
 }
