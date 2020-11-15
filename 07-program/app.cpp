@@ -13,8 +13,7 @@
 using namespace std;
 
 // Function prototypes
-void userInput(int, int, int, int, int, int);
-int calcGirth(int, int, int, int);
+void userInput(int, int, int, int, int, int, int);
 
 // main Function definition
 int main()
@@ -24,20 +23,21 @@ int main()
         side2,
         side3,
         num_accepted = 0,
-        num_rejected = 0;
+        num_rejected = 0,
+        num_transactions = 0;
 
     cout << endl;
     cout << "For each transaction, enter package weight and 3 dimensions." << endl;
     cout << "Enter -1 to quit." << endl;
 
     // Function calls
-    userInput(weight, side1, side2, side3, num_accepted, num_rejected);
+    userInput(weight, side1, side2, side3, num_accepted, num_rejected, num_transactions);
 
     return 0;
 }
 
 // userInput Fuction definition
-void userInput(int weight, int side1, int side2, int side3, int num_accepted, int num_rejected)
+void userInput(int weight, int side1, int side2, int side3, int num_accepted, int num_rejected, int num_transactions)
 {
     int girth = 0;
 
@@ -63,7 +63,7 @@ void userInput(int weight, int side1, int side2, int side3, int num_accepted, in
         cout << "Error - package weight and dimensions must be larger than 0" << endl;
         cout << "Please re-enter transaction" << endl;
 
-        userInput(weight, side1, side2, side3, num_accepted, num_rejected);
+        userInput(weight, side1, side2, side3, num_accepted, num_rejected, num_transactions);
     }
 
     // calculate girth
@@ -82,8 +82,25 @@ void userInput(int weight, int side1, int side2, int side3, int num_accepted, in
 
     girth = 2 * (side1 + side2 + side3 - largest);
 
-    cout << largest << endl;
-    cout << girth << endl;
+    // check if user input is valid, positive ints
+    if (weight > 50 || side1 > 36 || side2 > 36 || side3 > 36 || girth > 60)
+    {
+        num_transactions++;
 
+        num_rejected++;
+
+        cout << setw(10) << left << "Transaction:" << setw(10) << right << num_transactions << endl;
+        cout << setw(10) << left << "Status:" << setw(10) << right << "Rejected" << endl;
+        cout << setw(10) << left << "Weight:" << setw(10) << right << weight << endl;
+        cout << setw(10) << left << "Cost:" << setw(10) << right << "cost" << endl;
+
+        userInput(weight, side1, side2, side3, num_accepted, num_rejected, num_transactions);
+    }
+    else
+    {
+
+
+        userInput(weight, side1, side2, side3, num_accepted, num_rejected, num_transactions);
+    }
 
 }
