@@ -14,6 +14,7 @@ using namespace std;
 
 // Function prototypes
 void userInput(int, int, int, int, int, int);
+int calcGirth(int, int, int, int);
 
 // main Function definition
 int main()
@@ -38,6 +39,8 @@ int main()
 // userInput Fuction definition
 void userInput(int weight, int side1, int side2, int side3, int num_accepted, int num_rejected)
 {
+    int girth = 0;
+
     cout << endl;
     cout << "Enter package weight and 3 dimensions: " << endl;
     cin >> weight;
@@ -64,12 +67,23 @@ void userInput(int weight, int side1, int side2, int side3, int num_accepted, in
     }
 
     // calculate girth
-    // add sides to side_array
-    // calculate largest of side_array
+    int side_array[3] = {side1, side2, side3};
+    int index = 0;
+    int largest = 0;
 
+    while (index < 3)
+    {
+        if(side_array[index] > largest)
+        {
+            largest = side_array[index];
+        }
+        index++;
+    }
 
-    // check if package exceeds shipping requirements
-    if (weight > 50 || side1 > 36 || side2 > 36 || side3 > 36 || girth > )
+    girth = 2 * (side1 + side2 + side3 - largest);
+
+    cout << largest << endl;
+    cout << girth << endl;
 
 
 }
