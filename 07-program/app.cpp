@@ -14,6 +14,7 @@ using namespace std;
 
 // Function prototypes
 void userInput(int, int, int, int, int, int, int);
+int calcCost(int);
 
 // main Function definition
 int main()
@@ -39,7 +40,6 @@ int main()
 // userInput Fuction definition
 void userInput(int weight, int side1, int side2, int side3, int num_accepted, int num_rejected, int num_transactions)
 {
-    int girth = 0;
 
     cout << endl;
     cout << "Enter package weight and 3 dimensions: " << endl;
@@ -68,9 +68,11 @@ void userInput(int weight, int side1, int side2, int side3, int num_accepted, in
 
     // calculate girth
     int side_array[3] = {side1, side2, side3};
+    int girth = 0;
     int index = 0;
     int largest = 0;
 
+    // search which side is the longest
     while (index < 3)
     {
         if(side_array[index] > largest)
@@ -86,21 +88,37 @@ void userInput(int weight, int side1, int side2, int side3, int num_accepted, in
     if (weight > 50 || side1 > 36 || side2 > 36 || side3 > 36 || girth > 60)
     {
         num_transactions++;
-
         num_rejected++;
 
-        cout << setw(10) << left << "Transaction:" << setw(10) << right << num_transactions << endl;
-        cout << setw(10) << left << "Status:" << setw(10) << right << "Rejected" << endl;
-        cout << setw(10) << left << "Weight:" << setw(10) << right << weight << endl;
-        cout << setw(10) << left << "Cost:" << setw(10) << right << "cost" << endl;
+        cout << endl;
+        cout << setw(12) << left << "Transaction:" << setw(10) << right << num_transactions << endl;
+        cout << setw(12) << left << "Status:" << setw(10) << right << "Rejected" << endl;
+        cout << setw(12) << left << "Weight:" << setw(10) << right << weight << endl;
+        cout << setw(12) << left << "Cost:" << setw(10) << right << "---" << endl;
 
         userInput(weight, side1, side2, side3, num_accepted, num_rejected, num_transactions);
     }
     else
     {
+        num_transactions++;
+        num_accepted++;
 
+        cout << endl;
+        cout << setw(12) << left << "Transaction:" << setw(10) << right << num_transactions << endl;
+        cout << setw(12) << left << "Status:" << setw(10) << right << "Accepted" << endl;
+        cout << setw(12) << left << "Weight:" << setw(10) << right << weight << endl;
+        cout << setw(12) << left << "Cost:" << setw(10) << right << calcCost(girth) << endl;
 
         userInput(weight, side1, side2, side3, num_accepted, num_rejected, num_transactions);
     }
 
+}
+
+int calcCost(int girth)
+{
+    int weight_array[15] = {1, 2, 3, 5, 7, 10, 13, 16, 20, 25, 30, 35, 40, 45, 50};
+    double shipping_charge[15] = {1.50, 2.10, 4.00, 6.75, 9.90, 14.95, 19.40, 24.20, 27.30, 31.90, 38.50, 43.50, 44.80, 47.40, 55.20};
+
+
+    return girth;
 }
