@@ -14,7 +14,7 @@ using namespace std;
 
 // Function prototypes
 void userInput(int, int, int, int, int, int, int);
-int calcCost(int);
+double calcCost(int);
 
 // main Function definition
 int main()
@@ -107,18 +107,32 @@ void userInput(int weight, int side1, int side2, int side3, int num_accepted, in
         cout << setw(12) << left << "Transaction:" << setw(10) << right << num_transactions << endl;
         cout << setw(12) << left << "Status:" << setw(10) << right << "Accepted" << endl;
         cout << setw(12) << left << "Weight:" << setw(10) << right << weight << endl;
-        cout << setw(12) << left << "Cost:" << setw(10) << right << calcCost(girth) << endl;
+        cout << setw(12) << left << "Cost:" << setw(10) << right << calcCost(weight) << endl;
 
         userInput(weight, side1, side2, side3, num_accepted, num_rejected, num_transactions);
     }
 
 }
 
-int calcCost(int girth)
+double calcCost(int weight)
 {
-    int weight_array[15] = {1, 2, 3, 5, 7, 10, 13, 16, 20, 25, 30, 35, 40, 45, 50};
-    double shipping_charge[15] = {1.50, 2.10, 4.00, 6.75, 9.90, 14.95, 19.40, 24.20, 27.30, 31.90, 38.50, 43.50, 44.80, 47.40, 55.20};
+    // initialization list
+    int weight_array[] = {1, 2, 3, 5, 7, 10, 13, 16, 20, 25, 30, 35, 40, 45, 50};
+    double shipping_charge[] = {1.50, 2.10, 4.00, 6.75, 9.90, 14.95, 19.40, 24.20, 27.30, 31.90, 38.50, 43.50, 44.80, 47.40, 55.20};
 
+    int index = 0;
+    int position = -1;
+    bool found = false;
 
-    return girth;
+    while(index < 15 && !found)
+    {
+        if(weight <= weight_array[index])
+        {
+            found = true;
+            position = index;
+        }
+        index++;
+    }
+
+    return shipping_charge[position];
 }
