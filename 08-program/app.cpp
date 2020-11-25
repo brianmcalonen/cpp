@@ -18,12 +18,21 @@ void whatever();
 int main()
 {
     int students = 0;
+    int *grade_ptr {nullptr};
 
     cout << endl;
     cout << "Enter the number of students to be processed: " << endl;
     cin >> students;
 
     // check students is a valid number
+    if (students < 0)
+    {
+        cout << "Please enter a valid number of students to be processed: " << endl;
+        cin >> students;
+    }
+
+    // allocate array on the heap
+    grade_ptr = new int[students];
 
     // use the new operator to dynamically allocate an array of that size
 
@@ -39,6 +48,9 @@ int main()
         // inside the function you must use pointer notation instead of array notation to access the array elements
 
     // Call a function that displays a neat table of student grades in sorted order.
+
+    // free allocated storage
+    delete [] grade_ptr;
 
     return 0;
 }
