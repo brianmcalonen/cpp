@@ -12,7 +12,7 @@
 using namespace std;
 
 // Function prototypes
-void inputGrades(int*, int);
+void inputGrades(int *, int);
 
 // main Function definition
 int main()
@@ -23,6 +23,7 @@ int main()
     cout << endl;
     cout << "Enter the number of students to be processed: ";
     cin >> students;
+
 
     // check students is a valid number
     if (students < 0)
@@ -37,9 +38,39 @@ int main()
     // Function calls
     inputGrades(grade_ptr, students);
 
-    // Call a function to sort the array in ascending (increasing) order.
+    // print grade_ptr array
+    for(int i = 0; i < students; i++)
+    {
+        cout << grade_ptr[i] << endl;
+    }
 
-    // Call a value-returning function that returns the floating-point average of the grades.
+    // free allocated storage
+    delete [] grade_ptr;
+
+    return 0;
+}
+
+// function to input and validate the student grades and store them in the array
+void inputGrades(int *grade_ptr, int students)
+{
+    for(int i = 0; i < students; i++)
+    {
+        cout << "\nEnter Grade for Student #" << i + 1 << ": ";
+        
+        cin >> grade_ptr[i];
+
+        if (grade_ptr[i] < 0 || grade_ptr[i] > 105)
+        {
+            cout << "Error - Please enter a valid score";
+            i--;
+        }
+    }
+
+}
+
+    // Function to sort the array in ascending (increasing) order.
+
+    // Value-returning function that returns the floating-point average of the grades.
         // Use only pointer notation in your function to calculate the average.
         // you must declare the array parameter using pointer notation instead of array notation.
         // inside the function you must use pointer notation instead of array notation to access the array elements
@@ -51,31 +82,4 @@ int main()
         //     cout << *score_ptr++ << endl;
 
 
-    // Call a function that displays a neat table of student grades in sorted order.
-
-    // free allocated storage
-    delete [] grade_ptr;
-
-    return 0;
-}
-
-// function to input and validate the student grades and store them in the array
-void inputGrades(int *grade_ptr, int students)
-{
-    cout << endl;
-
-    for(int i = 0; i < students; i++)
-    {
-        cout << "Enter Grade for Student #" << i + 1 << ": ";
-        cin >> grade_ptr[i];
-        
-        if (grade_ptr[i] < 0 || grade_ptr[i] > 105)
-        {
-            cout << endl;
-            cout << "Please enter a valid score: ";
-            cin >> grade_ptr[i];
-        }
-        
-    }
-    
-}
+    // Void function that displays a neat table of student grades in sorted order.
