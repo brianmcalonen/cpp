@@ -21,13 +21,13 @@ int main()
     int *grade_ptr = nullptr;
 
     cout << endl;
-    cout << "Enter the number of students to be processed: " << endl;
+    cout << "Enter the number of students to be processed: ";
     cin >> students;
 
     // check students is a valid number
     if (students < 0)
     {
-        cout << "Please enter a valid number of students to be processed: " << endl;
+        cout << "Please enter a valid number of students to be processed: ";
         cin >> students;
     }
 
@@ -62,12 +62,20 @@ int main()
 // function to input and validate the student grades and store them in the array.
 void inputGrades(int *grade_ptr, int students)
 {
+    cout << endl;
+    
     for(int i = 0; i < students; i++)
     {
-
-        cout << "Enter Grade for Student #" << i + 1 << endl;
+        cout << "Enter Grade for Student #" << i + 1 << ": ";
+        cin >> grade_ptr[i];
+        
+        if (grade_ptr[i] < 0 || grade_ptr[i] > 105)
+        {
+            cout << endl;
+            cout << "Please enter a valid score: ";
+            cin >> grade_ptr[i];
+        }
+        
     }
-
-    cout << endl;
     
 }
