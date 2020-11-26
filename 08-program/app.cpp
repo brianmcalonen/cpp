@@ -59,11 +59,11 @@ int main()
     return 0;
 }
 
-// function to input and validate the student grades and store them in the array.
+// function to input and validate the student grades and store them in the array
 void inputGrades(int *grade_ptr, int students)
 {
     cout << endl;
-    
+
     for(int i = 0; i < students; i++)
     {
         cout << "Enter Grade for Student #" << i + 1 << ": ";
