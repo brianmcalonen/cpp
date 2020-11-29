@@ -28,9 +28,8 @@ int main()
         num_accepted = 0,       // number of total accepted transactions
         num_rejected = 0;       // number of total rejected transactions
 
-    cout << endl;
     // print the instructions for the user
-    cout << "For each transaction, enter package weight and 3 dimensions." << endl;
+    cout << "\nFor each transaction, enter package weight and 3 dimensions." << endl;
     cout << "Enter -1 to quit." << endl;
 
     // Function call
@@ -42,10 +41,8 @@ int main()
 // userInput Fuction definition
 void userInput(int weight, int side1, int side2, int side3, int num_accepted, int num_rejected, int num_transactions)
 {
-
-    cout << endl;
     // prompt the user for the package details
-    cout << "Enter package weight and 3 dimensions: " << endl;
+    cout << "\nEnter package weight and 3 dimensions: " << endl;
     // weight variable is set to the first user input
     cin >> weight;
 
