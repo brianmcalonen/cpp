@@ -28,8 +28,14 @@ class Employee
     bool set(int newId, string newName, double newHourlyPay,
              int newNumDeps, int newType);
 
+    int get_id();
+    string get_name();
+    double get_hourlyPay();
+    int get_numDeps();
+    int get_type();
 };
 
+// Employee constructor method
 Employee::Employee( int initId, string initName,
                     double initHourlyPay,
                     int initNumDeps, int initType )
@@ -47,6 +53,7 @@ Employee::Employee( int initId, string initName,
   }
 }
 
+// Employee set method
 bool Employee::set( int newId, string newName, double newHourlyPay,
                                  int newNumDeps, int newType )
 {
@@ -64,3 +71,18 @@ bool Employee::set( int newId, string newName, double newHourlyPay,
   }
   return status;
 }
+
+// Employee get_id method
+int Employee::get_id() { return id; }
+
+// Employee get_name method
+string Employee::get_name() { return name; }
+
+// Employee get_hourlyPay method
+double Employee::get_hourlyPay() { return hourlyPay; }
+
+// Employee get_numDeps method
+int Employee::get_numDeps() { return numDeps; }
+
+// Employee get_type method
+int Employee::get_type() { return type; }
