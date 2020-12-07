@@ -9,6 +9,9 @@
 
 #include <iostream> // input/output declarations
 #include <iomanip>  // i/o manupulator declarations
+#include <fstream> 
+#include <string> 
+
 using namespace std;
 
 class Employee
@@ -86,3 +89,23 @@ int Employee::get_numDeps() { return numDeps; }
 
 // Employee get_type method
 int Employee::get_type() { return type; }
+
+
+int main() {
+  Employee emp_array[6];
+  string word;
+
+  ifstream masterFile;
+  masterFile.open("./master.txt");
+
+  if(masterFile.fail()) {
+    cout << "File not found" << endl;
+    return 1;
+  }
+
+  while (masterFile >> word) {
+    cout << word << endl;
+  }
+
+  return 0;
+}
